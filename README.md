@@ -7,6 +7,7 @@ Basic academic version of Battleship game to build upon.
 
 ## Membros
 
+|---|---|---:|
 ---
 | Engenharia de Telecomunicações e Informática | 129818 | Inês Aleixo |
 ---
@@ -16,5 +17,6 @@ Basic academic version of Battleship game to build upon.
 ---
 | Engenharia de Telecomunicações e Informática | - | Jorge Fernandes |
 ---
+
 
 ##
