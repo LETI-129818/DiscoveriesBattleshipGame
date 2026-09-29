@@ -38,4 +38,4 @@ E quando noutro dia posterior quiser indicar que essa user story já foi impleme
 
 E quando o Product Owner desiste de uma user story, como podemos indicar isso no GitHub? 
 
-- 
+- No menu lateral direito, em Labels, adiciona a etiqueta status: WONTFIX, se houver pessoas em Assignees removemos. Escrevemos um comentário a justificar a desistência. Clicamos na seta ao lado do botão de fechar e escolhe Close as not planned.
