@@ -26,3 +26,16 @@ Basic academic version of Battleship game to build upon.
 | Navio de 2 canhões | Caravela | Caravel | 2 | 3 |
 | Submarino | Barca | Barge | 1 | 4 |
 
+---
+Imagine agora que está na reunião diária do Scrum em que tem de escolher uma nova user
+story para si próprio. O que fazer no GitHub?
+
+- Abro o issue correspondente e no menu lateral direito onde diz Assignees, clico e seleciono o meu utilizador (Assign yourself) e deixo um comentário no fundo do issue a dizer que assumi a tarefa
+
+E quando noutro dia posterior quiser indicar que essa user story já foi implementada?
+
+- Escrevo um comentário no issue a dizer que a tarefa está concluida e depois faço close issue
+
+E quando o Product Owner desiste de uma user story, como podemos indicar isso no GitHub? 
+
+- 
