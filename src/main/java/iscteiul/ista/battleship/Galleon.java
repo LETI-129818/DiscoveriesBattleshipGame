@@ -1,12 +1,11 @@
-/**
- *
- */
+
 package iscteiul.ista.battleship;
 
 /***
+ * Representa um navio do tipo Galeão no jogo da Batalha Naval.
+ *
  * @author Jorge Fernandes
  * @version 1.0
- * @see Ship
  */
 
 public class Galleon extends Ship {

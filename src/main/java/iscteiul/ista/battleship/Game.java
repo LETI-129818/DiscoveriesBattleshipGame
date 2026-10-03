@@ -1,26 +1,22 @@
-/**
- *
- * @author O Teu Nome
- * @version 1.0
- */
+
 package iscteiul.ista.battleship;
 
 import java.util.ArrayList;
 import java.util.List;
-
 /**
+ * Gere o estado do jogo da Batalha Naval, tiros efetuados e embarcações.
  *
- * @author O Teu Nome
+ * @author Jorge Fernandes
  * @version 1.0
  */
 public class Game implements IGame {
     /**
-     * A frota sobre a qual os disparos são efetuados.
+     * A frota sobre a qual os disparos sÃ£o efetuados.
      */
     private IFleet fleet;
 
     /**
-     * Histórico de posições onde já foram efetuados disparos válidos.
+     * HistÃ³rico de posiÃ§Ãµes onde jÃ¡ foram efetuados disparos vÃ¡lidos.
      */
 
     private List<IPosition> shots;
@@ -30,15 +26,15 @@ public class Game implements IGame {
 
     private Integer countInvalidShots;
     /**
-     * Contador de tiros efetuados em posições onde já se tinha disparado anteriormente.
+     * Contador de tiros efetuados em posiÃ§Ãµes onde jÃ¡ se tinha disparado anteriormente.
      */
     private Integer countRepeatedShots;
     /**
-     * Contador de tiros que atingiram com sucesso uma posição ocupada por um navio.
+     * Contador de tiros que atingiram com sucesso uma posiÃ§Ã£o ocupada por um navio.
      */
     private Integer countHits;
     /**
-     * Contador do número total de navios completamente afundados durante a partida.
+     * Contador do nÃºmero total de navios completamente afundados durante a partida.
      */
     private Integer countSinks;
 
@@ -57,12 +53,12 @@ public class Game implements IGame {
 
     /**
      *
-     * Efetua um disparo numa determinada posição do tabuleiro.
-     * Valida os limites e se a jogada é repetida; caso atinja um navio,
-     * aplica o dano e verifica se a embarcação afundou.
+     * Efetua um disparo numa determinada posiÃ§Ã£o do tabuleiro.
+     * Valida os limites e se a jogada Ã© repetida; caso atinja um navio,
+     * aplica o dano e verifica se a embarcaÃ§Ã£o afundou.
      *
-     * @param pos Posição do tabuleiro onde o tiro é desferido
-     * @return O navio atingido se este tiver acabado de ser afundado pelo tiro; se o tiro for inválido, repetido, acertar na água ou não afundar o navio
+     * @param pos PosiÃ§Ã£o do tabuleiro onde o tiro Ã© desferido
+     * @return O navio atingido se este tiver acabado de ser afundado pelo tiro; se o tiro for invÃ¡lido, repetido, acertar na Ã¡gua ou nÃ£o afundar o navio
      *
      * @see battleship.IGame#fire(battleship.IPosition)
      */
@@ -90,7 +86,7 @@ public class Game implements IGame {
     }
 
     /**
-     * @return Lista contendo as posições dos tiros registados
+     * @return Lista contendo as posiÃ§Ãµes dos tiros registados
      * @see battleship.IGame#getShots()
      */
     @Override
@@ -99,9 +95,9 @@ public class Game implements IGame {
     }
 
     /**
-     * Devolve o número total de tiros repetidos efetuados na partida.
+     * Devolve o nÃºmero total de tiros repetidos efetuados na partida.
      *
-     * @return Número de tiros repetidos
+     * @return NÃºmero de tiros repetidos
      * @see battleship.IGame#getRepeatedShots()
      */
     @Override
@@ -110,9 +106,9 @@ public class Game implements IGame {
     }
 
     /**
-     * Devolve o número total de tiros inválidos efetuados na partida.
+     * Devolve o nÃºmero total de tiros invÃ¡lidos efetuados na partida.
      *
-     * @return Número de tiros inválidos
+     * @return NÃºmero de tiros invÃ¡lidos
      * @see battleship.IGame#getInvalidShots()
      */
     @Override
@@ -121,9 +117,9 @@ public class Game implements IGame {
     }
 
     /**
-     * Devolve o número total de tiros acertados efetuados na partida.
+     * Devolve o nÃºmero total de tiros acertados efetuados na partida.
      *
-     * @return Número de tiros acertados
+     * @return NÃºmero de tiros acertados
      * @see battleship.IGame#getHits()
      */
     @Override
@@ -132,9 +128,9 @@ public class Game implements IGame {
     }
 
     /**
-     * Devolve o número total de navios afundados na partida.
+     * Devolve o nÃºmero total de navios afundados na partida.
      *
-     * @return Número de navios afundados
+     * @return NÃºmero de navios afundados
      * @see battleship.IGame#getSunkShips()
      */
     @Override
@@ -143,9 +139,9 @@ public class Game implements IGame {
     }
 
     /**
-     * Devolve o número total de navios que ainda não afundaram na partida.
+     * Devolve o nÃºmero total de navios que ainda nÃ£o afundaram na partida.
      *
-     * @return Número de navios restantes
+     * @return NÃºmero de navios restantes
      * @see battleship.IGame#getRemainingShips()
      */
     @Override
@@ -155,9 +151,9 @@ public class Game implements IGame {
     }
 
     /**
-     * verifica se a posição fornecida está dentro dos limites do tabuleiro
-     * @param pos posição a verificar
-     * @return  true se a posição estiver dentro dos limites do tabuleiro; false caso contrário
+     * verifica se a posiÃ§Ã£o fornecida estÃ¡ dentro dos limites do tabuleiro
+     * @param pos posiÃ§Ã£o a verificar
+     * @return  true se a posiÃ§Ã£o estiver dentro dos limites do tabuleiro; false caso contrÃ¡rio
      */
 
     private boolean validShot(IPosition pos) {
@@ -166,9 +162,9 @@ public class Game implements IGame {
     }
 
     /**
-     * verifica se a posição fornecida já foi alvo de um tiro anterior
-     * @param pos posição a verificar
-     * @return true se a posição já tiver sido alvo de um tiro anterior; false caso contrário
+     * verifica se a posiÃ§Ã£o fornecida jÃ¡ foi alvo de um tiro anterior
+     * @param pos posiÃ§Ã£o a verificar
+     * @return true se a posiÃ§Ã£o jÃ¡ tiver sido alvo de um tiro anterior; false caso contrÃ¡rio
      */
 
     private boolean repeatedShot(IPosition pos) {
@@ -179,9 +175,9 @@ public class Game implements IGame {
     }
 
     /**
-     * imprime o tabuleiro mostrando as posições fornecidas marcadas com o caracter fornecido
-     * @param positions Lista de posições a serem marcadas
-     * @param marker Caracter para marcar as posições
+     * imprime o tabuleiro mostrando as posiÃ§Ãµes fornecidas marcadas com o caracter fornecido
+     * @param positions Lista de posiÃ§Ãµes a serem marcadas
+     * @param marker Caracter para marcar as posiÃ§Ãµes
      */
 
     public void printBoard(List<IPosition> positions, Character marker) {
@@ -204,7 +200,7 @@ public class Game implements IGame {
 
 
     /**
-     * imprime o tabuleiro mostrando os tiros válidos efetuados
+     * imprime o tabuleiro mostrando os tiros vÃ¡lidos efetuados
      */
     public void printValidShots() {
         printBoard(getShots(), 'X');
@@ -213,7 +209,7 @@ public class Game implements IGame {
 
     /**
      * imprime o tabuleiro mostrando a frota de navios
-     *  as posições ocupadas pelos navios são marcadas com o caracter '#'
+     *  as posiÃ§Ãµes ocupadas pelos navios sÃ£o marcadas com o caracter '#'
      */
     public void printFleet() {
         List<IPosition> shipPositions = new ArrayList<IPosition>();
@@ -225,3 +221,6 @@ public class Game implements IGame {
     }
 
 }
+
+
+

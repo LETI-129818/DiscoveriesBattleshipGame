@@ -1,11 +1,11 @@
+package iscteiul.ista.battleship;
+
 /**
+ * Representa um navio do tipo Fragata no jogo da Batalha Naval.
  *
  * @author Jorge Fernandes
  * @version 1.0
- * @see Ship
  */
-package iscteiul.ista.battleship;
-
 public class Frigate extends Ship {
     private static final Integer SIZE = 4;
     private static final String NAME = "Fragata";
@@ -36,7 +36,7 @@ public class Frigate extends Ship {
     }
 
     /**
-     * @return O número de células ocupadas pelo navio (4)
+     * @return O numero de celulas ocupadas pelo navio (4)
      * @see battleship.Ship#getSize()
      */
     @Override
@@ -45,3 +45,4 @@ public class Frigate extends Ship {
     }
 
 }
+

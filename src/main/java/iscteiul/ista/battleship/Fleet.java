@@ -1,11 +1,14 @@
-/**
- * @author Jorge Fernandes
- * @version 1.0
- */
+
 package iscteiul.ista.battleship;
 
 import java.util.ArrayList;
 import java.util.List;
+/**
+ * esta classe representa um frota de navios no jogo da Batalha Naval
+ *
+ *  @author Jorge Fernandes
+ * @version 1.0
+ */
 
 public class Fleet implements IFleet {
     /**
