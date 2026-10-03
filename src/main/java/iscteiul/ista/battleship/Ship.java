@@ -1,12 +1,13 @@
-/**
- *
- */
 package iscteiul.ista.battleship;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+/**
+ * Representa um navio abstrato do jogo, definido pela categoria, orientação e
+ * posição inicial, e pelas posições que ocupa no tabuleiro.
+ */
 public abstract class Ship implements IShip {
 
     private static final String GALEAO = "galeao";
@@ -16,10 +17,13 @@ public abstract class Ship implements IShip {
     private static final String BARCA = "barca";
 
     /**
-     * @param shipKind
-     * @param bearing
-     * @param pos
-     * @return
+     * Cria um navio do tipo indicado.
+     *
+     * @param shipKind identificador do tipo de navio
+     * @param bearing orientação do navio
+     * @param pos posição inicial do navio
+     * @return navio correspondente ao identificador, ou {@code null} se o tipo
+     *         não for reconhecido
      */
     static Ship buildShip(String shipKind, Compass bearing, Position pos) {
         Ship s;
@@ -53,9 +57,12 @@ public abstract class Ship implements IShip {
 
 
     /**
-     * @param category
-     * @param bearing
-     * @param pos
+     * Inicializa um navio com a categoria, orientação e posição indicadas.
+     * As posições ocupadas são preenchidas pela subclasse concreta.
+     *
+     * @param category categoria do navio
+     * @param bearing orientação do navio
+     * @param pos posição inicial do navio
      */
     public Ship(String category, Compass bearing, IPosition pos) {
         assert bearing != null;
@@ -67,10 +74,10 @@ public abstract class Ship implements IShip {
         positions = new ArrayList<>();
     }
 
-    /*
-     * (non-Javadoc)
+    /**
+     * Obtém a categoria deste navio.
      *
-     * @see battleship.IShip#getCategory()
+     * @return categoria do navio
      */
     @Override
     public String getCategory() {
@@ -78,36 +85,40 @@ public abstract class Ship implements IShip {
     }
 
     /**
-     * @return the positions
+     * Obtém a lista das posições ocupadas por este navio.
+     * A lista devolvida é a lista interna e pode ser alterada.
+     *
+     * @return lista mutável das posições ocupadas
      */
     public List<IPosition> getPositions() {
         return positions;
     }
 
-    /*
-     * (non-Javadoc)
+    /**
+     * Obtém a posição inicial deste navio.
      *
-     * @see battleship.IShip#getPosition()
+     * @return posição inicial
      */
     @Override
     public IPosition getPosition() {
         return pos;
     }
 
-    /*
-     * (non-Javadoc)
+    /**
+     * Obtém a orientação deste navio.
      *
-     * @see battleship.IShip#getBearing()
+     * @return orientação do navio
      */
     @Override
     public Compass getBearing() {
         return bearing;
     }
 
-    /*
-     * (non-Javadoc)
+    /**
+     * Verifica se pelo menos uma das posições ocupadas ainda não foi atingida.
      *
-     * @see battleship.IShip#stillFloating()
+     * @return {@code true} se o navio ainda estiver a flutuar;
+     *         {@code false} se todas as posições estiverem atingidas
      */
     @Override
     public boolean stillFloating() {
@@ -117,10 +128,10 @@ public abstract class Ship implements IShip {
         return false;
     }
 
-    /*
-     * (non-Javadoc)
+    /**
+     * Obtém o índice da linha mais acima ocupada pelo navio.
      *
-     * @see battleship.IShip#getTopMostPos()
+     * @return menor índice de linha entre as posições ocupadas
      */
     @Override
     public int getTopMostPos() {
@@ -131,10 +142,10 @@ public abstract class Ship implements IShip {
         return top;
     }
 
-    /*
-     * (non-Javadoc)
+    /**
+     * Obtém o índice da linha mais abaixo ocupada pelo navio.
      *
-     * @see battleship.IShip#getBottomMostPos()
+     * @return maior índice de linha entre as posições ocupadas
      */
     @Override
     public int getBottomMostPos() {
@@ -145,10 +156,10 @@ public abstract class Ship implements IShip {
         return bottom;
     }
 
-    /*
-     * (non-Javadoc)
+    /**
+     * Obtém o índice da coluna mais à esquerda ocupada pelo navio.
      *
-     * @see battleship.IShip#getLeftMostPos()
+     * @return menor índice de coluna entre as posições ocupadas
      */
     @Override
     public int getLeftMostPos() {
@@ -159,10 +170,10 @@ public abstract class Ship implements IShip {
         return left;
     }
 
-    /*
-     * (non-Javadoc)
+    /**
+     * Obtém o índice da coluna mais à direita ocupada pelo navio.
      *
-     * @see battleship.IShip#getRightMostPos()
+     * @return maior índice de coluna entre as posições ocupadas
      */
     @Override
     public int getRightMostPos() {
@@ -173,10 +184,12 @@ public abstract class Ship implements IShip {
         return right;
     }
 
-    /*
-     * (non-Javadoc)
+    /**
+     * Verifica se este navio ocupa a posição indicada.
      *
-     * @see battleship.IShip#occupies(battleship.IPosition)
+     * @param pos posição a verificar
+     * @return {@code true} se o navio ocupar essa posição; {@code false} caso
+     *         contrário
      */
     @Override
     public boolean occupies(IPosition pos) {
@@ -188,10 +201,13 @@ public abstract class Ship implements IShip {
         return false;
     }
 
-    /*
-     * (non-Javadoc)
+    /**
+     * Verifica se este navio está adjacente a alguma posição de outro navio.
+     * A adjacência inclui diagonais e posições coincidentes.
      *
-     * @see battleship.IShip#tooCloseTo(battleship.IShip)
+     * @param other navio a verificar
+     * @return {@code true} se pelo menos uma posição dos navios for adjacente
+     *         ou coincidente; {@code false} caso contrário
      */
     @Override
     public boolean tooCloseTo(IShip other) {
@@ -205,10 +221,13 @@ public abstract class Ship implements IShip {
         return false;
     }
 
-    /*
-     * (non-Javadoc)
+    /**
+     * Verifica se alguma posição ocupada por este navio está adjacente ou
+     * coincide com a posição indicada. A adjacência inclui diagonais.
      *
-     * @see battleship.IShip#tooCloseTo(battleship.IPosition)
+     * @param pos posição a verificar
+     * @return {@code true} se houver adjacência ou coincidência;
+     *         {@code false} caso contrário
      */
     @Override
     public boolean tooCloseTo(IPosition pos) {
@@ -219,10 +238,11 @@ public abstract class Ship implements IShip {
     }
 
 
-    /*
-     * (non-Javadoc)
+    /**
+     * Marca como atingidas as posições deste navio que coincidam com a posição
+     * indicada.
      *
-     * @see battleship.IShip#shoot(battleship.IPosition)
+     * @param pos posição atingida
      */
     @Override
     public void shoot(IPosition pos) {
@@ -235,6 +255,12 @@ public abstract class Ship implements IShip {
     }
 
 
+    /**
+     * Devolve uma representação textual da categoria, orientação e posição
+     * inicial deste navio.
+     *
+     * @return representação textual do navio
+     */
     @Override
     public String toString() {
         return "[" + category + " " + bearing + " " + pos + "]";
