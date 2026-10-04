@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html","k":"18"},{"p":"iscteiul.ista.battleship","l":"IFleet","k":"10"},{"p":"iscteiul.ista.battleship","l":"IGame","k":"10"},{"p":"iscteiul.ista.battleship","l":"IPosition","k":"10"},{"p":"iscteiul.ista.battleship","l":"IShip","k":"10"}];updateSearchResults();

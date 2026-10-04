@@ -1,90 +1,63 @@
-///**
-// *
-// */
-//package iscteiul.ista.battleship;
-//
-//import java.util.List;
-//
-//public interface IFleet {
-//    Integer BOARD_SIZE = 10;
-//    Integer FLEET_SIZE = 10;
-//
-//    List<IShip> getShips();
-//
-//    boolean addShip(IShip s);
-//
-//    List<IShip> getShipsLike(String category);
-//
-//    List<IShip> getFloatingShips();
-//
-//    IShip shipAt(IPosition pos);
-//
-//    void printStatus();
-//}
-
-/**
- *
- */
 package iscteiul.ista.battleship;
 
 import java.util.List;
 
 /**
- * Represents the fleet of ships in the Battleship game.
- * Defines board dimensions, fleet size limits, and operations
- * for managing and querying ships within the fleet.
+ * Representa a frota de navios no jogo Batalha Naval.
+ * Define as dimensões do tabuleiro, o limite do tamanho da frota e as
+ * operações para gerir e consultar os navios pertencentes à frota.
  */
 public interface IFleet {
     /**
-     * Default size of the board grid (10x10).
+     * Tamanho padrão da grelha do tabuleiro (10x10).
      */
     Integer BOARD_SIZE = 10;
 
     /**
-     * Maximum number of ships allowed in the fleet.
+     * Número máximo de navios permitidos na frota.
      */
     Integer FLEET_SIZE = 10;
 
     /**
-     * Retrieves the complete list of ships that make up the fleet.
+     * Obtém a lista completa de navios que constituem a frota.
      *
-     * @return a list containing all {@link IShip} objects in the fleet.
+     * @return uma lista contendo todos os objetos {@link IShip} da frota.
      */
     List getShips();
 
     /**
-     * Adds a new ship to the fleet if it meets the placement and validation rules.
+     * Adiciona um novo navio à frota caso este cumpra as regras de validação e posicionamento.
      *
-     * @param s the ship ({@link IShip}) to be added to the fleet.
-     * @return {@code true} if the ship was successfully added; {@code false} otherwise.
+     * @param s o navio ({@link IShip}) a ser adicionado à frota.
+     * @return {@code true} se o navio foi adicionado com sucesso; {@code false} caso contrário.
      */
     boolean addShip(IShip s);
 
     /**
-     * Returns a list of ships in the fleet belonging to a specific category.
+     * Retorna uma lista com os navios da frota pertencentes a uma categoria específica.
      *
-     * @param category the category/type of ship to search for (e.g., "Barge", "Frigate").
-     * @return a list of {@link IShip} objects matching the specified category.
+     * @param category a categoria/tipo de navio a procurar (ex.: "Barca", "Fragata").
+     * @return uma lista de objetos {@link IShip} que correspondem à categoria especificada.
      */
     List getShipsLike(String category);
 
     /**
-     * Retrieves only the ships in the fleet that are still floating (not sunk).
+     * Obtém apenas os navios da frota que ainda se encontram a flutuar (não afundados).
      *
-     * @return a list containing all active/operational {@link IShip} objects.
+     * @return uma lista contendo todos os objetos {@link IShip} ativos/operacionais.
      */
     List getFloatingShips();
 
     /**
-     * Finds and returns the ship occupying a specific position on the board.
+     * Procura e devolve o navio que ocupa uma posição específica no tabuleiro.
      *
-     * @param pos the position ({@link IPosition}) to check on the board.
-     * @return the {@link IShip} present at that position, or {@code null} if empty.
+     * @param pos a posição ({@link IPosition}) a verificar no tabuleiro.
+     * @return o navio ({@link IShip}) presente nessa posição, ou {@code null} se a posição estiver vazia.
      */
     IShip shipAt(IPosition pos);
 
     /**
-     * Prints the current status of the fleet to the console (e.g., remaining, hit, or sunk ships).
+     * Imprime o estado atual da frota na consola (ex.: navios restantes, atingidos ou afundados).
      */
     void printStatus();
 }
