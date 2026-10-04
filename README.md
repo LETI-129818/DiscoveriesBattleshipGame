@@ -40,6 +40,7 @@ E quando o Product Owner desiste de uma user story, como podemos indicar isso no
 
 - No menu lateral direito, em Labels, adiciono a etiqueta status: WONTFIX, se houver pessoas em Assignees removo. Escrevo um comentário a justificar a desistência. Clico na seta ao lado do botão de fechar e escolhe Close as not planned.
 
+/////
 ## Curiosidades sobre os navios
 
 *Galeão*: Portugal construiu o maior navio de guerra do mundo na sua época, o galeão *São João Baptista* (conhecido como *Botafogo*). Tinha 366 bocas de fogo e foi decisivo na Conquista de Tunes em 1535; o seu poder de fogo inspirou a alcunha do artilheiro responsável pela peça principal, origem direta do famoso bairro e clube de futebol Botafogo no Rio de Janeiro.

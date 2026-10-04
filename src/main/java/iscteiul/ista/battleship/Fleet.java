@@ -1,5 +1,6 @@
 /**
- *
+ * @author Jorge Fernandes
+ * @version 1.0
  */
 package iscteiul.ista.battleship;
 
@@ -30,8 +31,13 @@ public class Fleet implements IFleet {
         return ships;
     }
 
-    /*
-     * (non-Javadoc)
+    /**
+     * Adiciona um navio à frota, desde que a capacidade máxima não tenha sido atingida,
+     * o navio fique totalmente contido no tabuleiro e não colida nem fique adjacente a outros.
+     *
+     * @param s O navio a ser adicionado à frota
+     * @return {@code true} se o navio foi adicionado com sucesso; {@code false} caso contrário
+     + @see battleship.IFleet#addShip(battleship.IShip)
      *
      * @see battleship.IFleet#addShip(battleship.IShip)
      */
@@ -45,8 +51,10 @@ public class Fleet implements IFleet {
         return result;
     }
 
-    /*
-     * (non-Javadoc)
+    /**
+     * @param category Nome da categoria de navios pretendida (ex.: "Galeao", "Fragata")
+     * @return Lista de navios correspondentes à categoria especificada
+     * @see battleship.IFleet#getShipsLike(java.lang.String)
      *
      * @see battleship.IFleet#getShipsLike(java.lang.String)
      */
@@ -60,10 +68,12 @@ public class Fleet implements IFleet {
         return shipsLike;
     }
 
-    /*
+    /**
      * (non-Javadoc)
      *
+     * @return Lista de navios que continuam a flutuar
      * @see battleship.IFleet#getFloatingShips()
+     *
      */
     @Override
     public List<IShip> getFloatingShips() {
@@ -75,9 +85,10 @@ public class Fleet implements IFleet {
         return floatingShips;
     }
 
-    /*
-     * (non-Javadoc)
+    /**
      *
+     *@param pos Posição do tabuleiro a consultar
+     *@return A instância de {@link IShip} presente na posição, se a posição estiver desocupada
      * @see battleship.IFleet#shipAt(battleship.IPosition)
      */
     @Override
@@ -87,12 +98,22 @@ public class Fleet implements IFleet {
                 return ships.get(i);
         return null;
     }
-
+    /**
+     * Verifica se todas as posições ocupadas pelo navio se encontram dentro dos limites do tabuleiro.
+     *
+     * @param s Navio a verificar
+     * @return  se o navio estiver totalmente dentro do tabuleiro; {@code false} caso contrário
+     */
     private boolean isInsideBoard(IShip s) {
         return (s.getLeftMostPos() >= 0 && s.getRightMostPos() <= BOARD_SIZE - 1 && s.getTopMostPos() >= 0
                 && s.getBottomMostPos() <= BOARD_SIZE - 1);
     }
-
+    /**
+     * Verifica se o navio a colocar colide ou fica encostado a algum dos navios já existentes na frota.
+     *
+     * @param s Navio a validar
+     * @return se existir risco de colisão ou sobreposição; {@code false} se o posicionamento for válido
+     */
     private boolean colisionRisk(IShip s) {
         for (int i = 0; i < ships.size(); i++) {
             if (ships.get(i).tooCloseTo(s))
@@ -104,6 +125,7 @@ public class Fleet implements IFleet {
 
     /**
      * This operation shows the state of a fleet
+     *
      */
     public void printStatus() {
         printAllShips();

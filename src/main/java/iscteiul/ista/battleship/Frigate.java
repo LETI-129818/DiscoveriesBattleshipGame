@@ -1,5 +1,8 @@
 /**
  *
+ * @author Jorge Fernandes
+ * @version 1.0
+ * @see Ship
  */
 package iscteiul.ista.battleship;
 
@@ -8,8 +11,11 @@ public class Frigate extends Ship {
     private static final String NAME = "Fragata";
 
     /**
-     * @param bearing
-     * @param pos
+     * @param bearing orientação do navio (NORTE, SUL, ESTE ou OESTE)
+     * @param pos pos posição inicial do navio
+     * @throws IllegalArgumentException se a orientação fornecida for nula ou inválida
+     *
+     *
      */
     public Frigate(Compass bearing, IPosition pos) throws IllegalArgumentException {
         super(Frigate.NAME, bearing, pos);
@@ -29,9 +35,8 @@ public class Frigate extends Ship {
         }
     }
 
-    /*
-     * (non-Javadoc)
-     *
+    /**
+     * @return O número de células ocupadas pelo navio (4)
      * @see battleship.Ship#getSize()
      */
     @Override
