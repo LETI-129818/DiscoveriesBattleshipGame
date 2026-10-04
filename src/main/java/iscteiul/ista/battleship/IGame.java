@@ -1,100 +1,71 @@
-///**
-// *
-// */
-//package iscteiul.ista.battleship;
-//
-//import java.util.List;
-//
-//public interface IGame {
-//    IShip fire(IPosition pos);
-//
-//    List<IPosition> getShots();
-//
-//    int getRepeatedShots();
-//
-//    int getInvalidShots();
-//
-//    int getHits();
-//
-//    int getSunkShips();
-//
-//    int getRemainingShips();
-//
-//    void printValidShots();
-//
-//    void printFleet();
-//}
-
-/**
- *
- */
 package iscteiul.ista.battleship;
 
 import java.util.List;
 
 /**
- * Represents the Battleship game engine.
- * Defines methods for firing shots and tracking match statistics,
- * such as valid, repeated, invalid, and successful hits.
+ * Representa o motor do jogo Batalha Naval.
+ * Define os métodos para efetuar disparos e acompanhar as estatísticas da partida,
+ * tais como tiros válidos, repetidos, inválidos e acertos efetuados.
  */
 public interface IGame {
+
     /**
-     * Fires a shot at a specific position on the board.
+     * Efetua um disparo numa posição específica do tabuleiro.
      *
-     * @param pos the position ({@link IPosition}) targeted by the shot.
-     * @return the hit ship ({@link IShip}) if the shot lands on a target, or {@code null} if it hits water or is invalid.
+     * @param pos a posição ({@link IPosition}) visada pelo tiro.
+     * @return o navio atingido ({@link IShip}) se o tiro acertar num alvo, ou {@code null} se acertar na água ou for inválido.
      */
     IShip fire(IPosition pos);
 
     /**
-     * Retrieves the list of all positions where shots have been fired during the game.
+     * Obtém a lista de todas as posições onde foram efetuados disparos durante o jogo.
      *
-     * @return a list of {@link IPosition} objects corresponding to fired shots.
+     * @return uma lista de objetos {@link IPosition} correspondentes aos tiros disparados.
      */
     List getShots();
 
     /**
-     * Gets the total count of repeated shots (shots fired at previously targeted positions).
+     * Obtém o número total de tiros repetidos (disparos efetuados em posições previamente atingidas).
      *
-     * @return the number of repeated shots.
+     * @return o número de tiros repetidos.
      */
     int getRepeatedShots();
 
     /**
-     * Gets the total count of invalid shots (shots out of bounds or violating rules).
+     * Obtém o número total de tiros inválidos (disparos fora dos limites do tabuleiro ou que violam as regras).
      *
-     * @return the number of invalid shots.
+     * @return o número de tiros inválidos.
      */
     int getInvalidShots();
 
     /**
-     * Gets the total count of successful shots that hit a ship.
+     * Obtém o número total de tiros bem-sucedidos que atingiram um navio.
      *
-     * @return the total number of hits.
+     * @return o número total de acertos.
      */
     int getHits();
 
     /**
-     * Gets the total count of fleet ships that have been completely sunk.
+     * Obtém o número total de navios da frota que já foram completamente afundados.
      *
-     * @return the number of sunk ships.
+     * @return o número de navios afundados.
      */
     int getSunkShips();
 
     /**
-     * Gets the number of fleet ships that are still floating/operational.
+     * Obtém o número de navios da frota que ainda se encontram a flutuar/operacionais.
      *
-     * @return the number of remaining ships.
+     * @return o número de navios restantes.
      */
     int getRemainingShips();
 
     /**
-     * Prints a visual representation of the board grid containing only valid shots to the console.
+     * Imprime na consola uma representação visual da grelha do tabuleiro contendo apenas os tiros válidos.
      */
     void printValidShots();
 
     /**
-     * Prints a visual representation of the board showing the location and status of all fleet ships to the console.
+     * Imprime na consola uma representação visual do tabuleiro mostrando a localização e o estado de todos os navios da frota.
      */
     void printFleet();
 }

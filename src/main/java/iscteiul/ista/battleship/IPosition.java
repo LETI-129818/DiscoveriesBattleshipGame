@@ -1,94 +1,66 @@
-///**
-// *
-// */
-//package iscteiul.ista.battleship;
-//
-///**
-// * @author fba
-// */
-//public interface IPosition {
-//    int getRow();
-//
-//    int getColumn();
-//
-//    boolean equals(Object other);
-//
-//    boolean isAdjacentTo(IPosition other);
-//
-//    void occupy();
-//
-//    void shoot();
-//
-//    boolean isOccupied();
-//
-//    boolean isHit();
-//}
-
-/**
- *
- */
 package iscteiul.ista.battleship;
 
 /**
- * Represents a position (cell) on the game board grid.
- * Defines row and column coordinates, ship occupation status,
- * and shot history for the cell.
+ * Representa uma posição (célula) na grelha do tabuleiro de jogo.
+ * Define as coordenadas de linha e coluna, o estado de ocupação por um navio
+ * e o histórico de tiros efetuados nessa célula.
  *
  * @author fba
  */
 public interface IPosition {
+
     /**
-     * Gets the row index corresponding to this position.
+     * Obtém o índice da linha correspondente a esta posição.
      *
-     * @return the row number.
+     * @return o número da linha.
      */
     int getRow();
 
     /**
-     * Gets the column index corresponding to this position.
+     * Obtém o índice da coluna correspondente a esta posição.
      *
-     * @return the column number.
+     * @return o número da coluna.
      */
     int getColumn();
 
     /**
-     * Compares this position with another object for equality.
-     * Two positions are considered equal if they have the same row and column.
+     * Compara esta posição com outro objeto para verificar se são iguais.
+     * Duas posições são consideradas iguais se tiverem a mesma linha e coluna.
      *
-     * @param other the object to compare with this position.
-     * @return {@code true} if the object is a position with identical coordinates; {@code false} otherwise.
+     * @param other o objeto a comparar com esta posição.
+     * @return {@code true} se o objeto for uma posição com coordenadas idênticas; {@code false} caso contrário.
      */
     boolean equals(Object other);
 
     /**
-     * Checks if this position is adjacent (vertically, horizontally, or diagonally) to another position.
+     * Verifica se esta posição é adjacente (vertical, horizontal ou diagonalmente) a outra posição.
      *
-     * @param other the other position ({@link IPosition}) to check proximity against.
-     * @return {@code true} if the positions are neighbors/adjacent; {@code false} otherwise.
+     * @param other a outra posição ({@link IPosition}) para comparar a proximidade.
+     * @return {@code true} se as posições forem vizinhas/adjacentes; {@code false} caso contrário.
      */
     boolean isAdjacentTo(IPosition other);
 
     /**
-     * Marks this position as occupied by a segment of a ship.
+     * Marca esta posição como ocupada por um segmento de um navio.
      */
     void occupy();
 
     /**
-     * Records that a shot was fired at this position.
+     * Regista que foi efetuado um disparo nesta posição.
      */
     void shoot();
 
     /**
-     * Checks if this position is currently occupied by a ship.
+     * Verifica se esta posição se encontra atualmente ocupada por um navio.
      *
-     * @return {@code true} if occupied; {@code false} if free.
+     * @return {@code true} se estiver ocupada; {@code false} se estiver livre.
      */
     boolean isOccupied();
 
     /**
-     * Checks if this position has already been targeted by a shot.
+     * Verifica se esta posição já foi atingida por um disparo.
      *
-     * @return {@code true} if it has been hit by a shot; {@code false} otherwise.
+     * @return {@code true} se já tiver sido alvo de um tiro; {@code false} caso contrário.
      */
     boolean isHit();
 }

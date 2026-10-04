@@ -1,151 +1,112 @@
-///**
-// *
-// */
-//package iscteiul.ista.battleship;
-//
-//import java.util.List;
-//
-//public interface IShip {
-//    String getCategory();
-//
-//    Integer getSize();
-//
-//    List<IPosition> getPositions();
-//
-//    IPosition getPosition();
-//
-//    Compass getBearing();
-//
-//    boolean stillFloating();
-//
-//    int getTopMostPos();
-//
-//    int getBottomMostPos();
-//
-//    int getLeftMostPos();
-//
-//    int getRightMostPos();
-//
-//    boolean occupies(IPosition pos);
-//
-//    boolean tooCloseTo(IShip other);
-//
-//    boolean tooCloseTo(IPosition pos);
-//
-//    void shoot(IPosition pos);
-//}
-
-/**
- *
- */
 package iscteiul.ista.battleship;
 
 import java.util.List;
 
 /**
- * Represents a ship in the Battleship game.
- * Defines ship attributes (category, size, position, orientation)
- * and operations to check occupation, proximity, and record hits.
+ * Representa um navio no jogo Batalha Naval.
+ * Define os atributos do navio (categoria, tamanho, posição, orientação)
+ * e as operações para verificar ocupação, proximidade e registar disparos sofridos.
  */
 public interface IShip {
+
     /**
-     * Gets the category or type of the ship (e.g., "Barge", "Frigate", "Carrack").
+     * Obtém a categoria ou tipo de navio (ex.: "Barca", "Fragata", "Nao").
      *
-     * @return the category name of the ship.
+     * @return o nome da categoria do navio.
      */
     String getCategory();
 
     /**
-     * Gets the number of positions/cells occupied by the ship on the board.
+     * Obtém o número de posições/células ocupadas pelo navio no tabuleiro.
      *
-     * @return the size of the ship.
+     * @return o tamanho do navio.
      */
     Integer getSize();
 
     /**
-     * Gets the list of all positions occupied by this ship.
+     * Obtém a lista de todas as posições ocupadas por este navio.
      *
-     * @return a list of {@link IPosition} objects making up the ship.
+     * @return uma lista de objetos {@link IPosition} que constituem o navio.
      */
-    List getPositions();
+    List<IPosition> getPositions();
 
     /**
-     * Gets the reference position (starting/anchor position) of the ship on the board.
+     * Obtém a posição de referência (posição inicial/âncora) do navio no tabuleiro.
      *
-     * @return the origin {@link IPosition} of the ship.
+     * @return a {@link IPosition} de origem do navio.
      */
     IPosition getPosition();
 
     /**
-     * Gets the compass direction/orientation the ship is facing.
+     * Obtém a orientação/direção da rosa dos ventos para a qual o navio está voltado.
      *
-     * @return the {@link Compass} cardinal point indicating the bearing.
+     * @return o ponto cardeal {@link Compass} que indica a orientação.
      */
     Compass getBearing();
 
     /**
-     * Checks if the ship is still floating (i.e., has at least one unhit position).
+     * Verifica se o navio ainda se encontra a flutuar (i.e., se tem pelo menos uma posição não atingida).
      *
-     * @return {@code true} if the ship is still operational; {@code false} if sunk.
+     * @return {@code true} se o navio ainda estiver operacional; {@code false} se tiver sido afundado.
      */
     boolean stillFloating();
 
     /**
-     * Gets the lowest row index occupied by the ship (topmost/northernmost position).
+     * Obtém o menor índice de linha ocupado pelo navio (posição mais a norte/topo).
      *
-     * @return the upper boundary row index.
+     * @return o índice da linha limite superior.
      */
     int getTopMostPos();
 
     /**
-     * Gets the highest row index occupied by the ship (bottommost/southernmost position).
+     * Obtém o maior índice de linha ocupado pelo navio (posição mais a sul/fundo).
      *
-     * @return the lower boundary row index.
+     * @return o índice da linha limite inferior.
      */
     int getBottomMostPos();
 
     /**
-     * Gets the lowest column index occupied by the ship (leftmost/westernmost position).
+     * Obtém o menor índice de coluna ocupado pelo navio (posição mais a oeste/esquerda).
      *
-     * @return the left boundary column index.
+     * @return o índice da coluna limite esquerda.
      */
     int getLeftMostPos();
 
     /**
-     * Gets the highest column index occupied by the ship (rightmost/easternmost position).
+     * Obtém o maior índice de coluna ocupado pelo navio (posição mais a este/direita).
      *
-     * @return the right boundary column index.
+     * @return o índice da coluna limite direita.
      */
     int getRightMostPos();
 
     /**
-     * Checks if the ship occupies a specific position on the board.
+     * Verifica se o navio ocupa uma posição específica no tabuleiro.
      *
-     * @param pos the position ({@link IPosition}) to test.
-     * @return {@code true} if the ship occupies that position; {@code false} otherwise.
+     * @param pos a posição ({@link IPosition}) a testar.
+     * @return {@code true} se o navio ocupar essa posição; {@code false} caso contrário.
      */
     boolean occupies(IPosition pos);
 
     /**
-     * Checks if this ship is too close to another ship, violating proximity spacing rules.
+     * Verifica se este navio está demasiado próximo de outro navio, violando as regras de espaçamento e proximidade.
      *
-     * @param other the other ship ({@link IShip}) to check against.
-     * @return {@code true} if they are too close/adjacent; {@code false} otherwise.
+     * @param other o outro navio ({@link IShip}) a comparar.
+     * @return {@code true} se estiverem demasiado próximos/adjacentes; {@code false} caso contrário.
      */
     boolean tooCloseTo(IShip other);
 
     /**
-     * Checks if the ship is too close to a specific position.
+     * Verifica se o navio está demasiado próximo de uma posição específica.
      *
-     * @param pos the position ({@link IPosition}) to test.
-     * @return {@code true} if the position is adjacent or overlapping; {@code false} otherwise.
+     * @param pos a posição ({@link IPosition}) a testar.
+     * @return {@code true} se a posição for adjacente ou sobreposta; {@code false} caso contrário.
      */
     boolean tooCloseTo(IPosition pos);
 
     /**
-     * Records a shot fired at the specified position of the ship.
+     * Regista um disparo atingido na posição especificada do navio.
      *
-     * @param pos the position ({@link IPosition}) targeted by the shot.
+     * @param pos a posição ({@link IPosition}) visada pelo tiro.
      */
     void shoot(IPosition pos);
 }
