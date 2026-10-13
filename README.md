@@ -1,3 +1,5 @@
+Ocorreu um erro ao criar perfil do github e o username do utilizador LETI-122626 é LETI122626
+
 # Battleship
 
 Basic academic version of Battleship game to build upon.
